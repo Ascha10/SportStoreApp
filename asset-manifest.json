@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SportStoreApp/static/css/main.18e97cd7.css",
+    "main.js": "/SportStoreApp/static/js/main.2143503f.js",
+    "static/js/787.6793e723.chunk.js": "/SportStoreApp/static/js/787.6793e723.chunk.js",
+    "index.html": "/SportStoreApp/index.html",
+    "main.18e97cd7.css.map": "/SportStoreApp/static/css/main.18e97cd7.css.map",
+    "main.2143503f.js.map": "/SportStoreApp/static/js/main.2143503f.js.map",
+    "787.6793e723.chunk.js.map": "/SportStoreApp/static/js/787.6793e723.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18e97cd7.css",
+    "static/js/main.2143503f.js"
+  ]
+}
