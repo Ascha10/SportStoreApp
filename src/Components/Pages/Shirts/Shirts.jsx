@@ -1,12 +1,12 @@
 import React,{useContext} from 'react';
-import { StoreProvider } from '../../../Context/StoreProvider';
+import { ShirtsProvider } from '../../../Context/ShirtsProvider/ShirtsProvider';
 import ShirtsCards from './ShirtsCards';
 
 export default function Shirts() {
 
   return(
-     <StoreProvider>
+     <ShirtsProvider>
           <ShirtsCards/>
-     </StoreProvider>
+     </ShirtsProvider>
   )    
 }

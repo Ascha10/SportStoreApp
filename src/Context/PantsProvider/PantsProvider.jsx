@@ -1,17 +1,22 @@
-// import React, { createContext, useEffect, useState } from 'react';
-// import { getPants } from '../../Services/pantsService';
-// export const pantsContext = createContext();
+import React, { createContext, useEffect, useState } from 'react';
+import { getPants } from '../../Services/pantsService';
+export const pantsContext = createContext();
 
-// export function PantsProvider({children}) {
-//     const [pantsApi,setPantsApi] = useState([]);
+export function PantsProvider({children}) {
+    const [pantsApi,setPantsApi] = useState([]);    
+    const [loading,setLoading] = useState(false);
+    const [error,setError] = useState(false);
     
-//     useEffect(() => {
-//         getPants().then((data) => setPantsApi(data))
-//     },[])
+    useEffect(() => {
+        setLoading(true);
+        getPants()
+        .then((data) => setPantsApi(data))
+        .finally(() => setLoading(false))
+    },[])
 
-//   return(
-//      <pantsContext.Provider value={{pantsApi,setPantsApi}}>
-//          {children}
-//      </pantsContext.Provider>   
-//   );
-// }
+  return(
+     <pantsContext.Provider value={{pantsApi,setPantsApi}}>
+         {children}
+     </pantsContext.Provider>   
+  );
+}

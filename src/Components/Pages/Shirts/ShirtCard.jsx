@@ -16,7 +16,7 @@ export default function ShirtCard({shirtInfo}) {
      const {model,company,price,imageData} = shirtInfo;
 
     return (
-      <Card sx={{ maxWidth: 345}}>
+      <Card sx={{ maxWidth: 345, '&:hover':{ transform:'scale(1.03)'},transition:'all 0.5s'}}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

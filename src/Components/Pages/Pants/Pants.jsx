@@ -1,13 +1,13 @@
 import React from 'react';
-import {StoreProvider } from '../../../Context/StoreProvider';
+import { PantsProvider } from '../../../Context/PantsProvider/PantsProvider';
 import PantsCards from './PantsCards';
 
 export default function Pants() {
 
   return(
-     <StoreProvider>
+     <PantsProvider>
           <PantsCards/>
-     </StoreProvider>
+     </PantsProvider>
 
   )
 }

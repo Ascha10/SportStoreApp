@@ -1,12 +1,12 @@
 import React from 'react';
-import {StoreProvider } from '../../../Context/StoreProvider';
+import { ShoesProvider } from '../../../Context/ShoesProvider/ShoesProvider';
 import ShoeCards from './ShoesCards';
 
 export default function Shoes() {
 
   return(
-     <StoreProvider>
+     <ShoesProvider>
           <ShoeCards/>
-     </StoreProvider>
+     </ShoesProvider>
   )
 }
