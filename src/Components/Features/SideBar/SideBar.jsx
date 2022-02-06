@@ -11,5 +11,6 @@ export default function SideBar() {
           <Link to="/Shoes">Shoes</Link>
           <Link to="/Contact">Contact</Link>
       </nav>
+      
   )
 }
