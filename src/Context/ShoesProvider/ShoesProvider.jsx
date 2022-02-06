@@ -1,23 +1,51 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useReducer } from 'react';
 import { getShoes } from '../../Services/shoesService';
 
 export const shoesContext = createContext();
+const initialState = {
+    loading: true,
+    error: '',
+    shoesApi: []
+}
+
+const option = {
+    fetchSuccess : 'fetchSuccess',
+    fetchError : 'fetchError'
+}
+const { fetchSuccess,fetchError} =  option; 
+
+const reducer = (state, action) => {
+    switch (action.type) {
+
+        case fetchSuccess:
+            return {
+                loading: false,
+                shoesApi: action.payload,
+                error: ''
+            }
+
+        case fetchError:
+            return {
+                loading: false,
+                shoesApi: [],
+                error: 'Something went wrong!'
+            }
+        default:
+            return state
+    }
+}
 
 export function ShoesProvider({children}) {
-
-    const [shoesApi,setShoesApi] = useState([]);
-    const [loading,setLoading] = useState(false);
-    const [error,setError] = useState(false);
+ const [state,dispatch] = useReducer(reducer,initialState);
     
     useEffect(() => {
-        setLoading(true);
-        getShoes()
-        .then((data) => setShoesApi(data))
-        .finally(() => setLoading(false))
-    },[])
+         getShoes()
+            .then(data => {dispatch({ type: fetchSuccess, payload: data })})
+            .catch(error => {dispatch({ type: fetchError })})
+    }, [])
 
   return(
-     <shoesContext.Provider value={{shoesApi,setShoesApi,loading}}>
+     <shoesContext.Provider value={{state,dispatch}}>
          {children}
      </shoesContext.Provider>   
   );

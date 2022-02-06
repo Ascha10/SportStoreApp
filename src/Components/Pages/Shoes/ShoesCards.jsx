@@ -4,12 +4,12 @@ import ShoeCard from './ShoeCard';
 import Loading from '../../Features/Loading/Loading'
 
 export default function ShoeCards() {
-    const {shoesApi,setShoesApi,loading} = useContext(shoesContext);
+    const {state,dispatch} = useContext(shoesContext);
 
   return(
-     loading ? <Loading/> :
+    state.loading ? <Loading/> :
        <section className='main'>
-            {shoesApi.map((shoeItem) => 
+            {state.shoesApi.map((shoeItem) => 
                <ShoeCard ShoeInfo={shoeItem} key={shoeItem.shoesId}/>
             )} 
        </section> 

@@ -4,12 +4,12 @@ import Loading from '../../Features/Loading/Loading';
 import PantCard from './PantCard';
 
 export default function ShoeCards() {
-    const {pantsApi,setPantsApi,loading} = useContext(pantsContext);
+    const {state,dispatch} = useContext(pantsContext);
 
   return(
-     loading ? <Loading/> :
+     state.loading ? <Loading/> :
        <section className='main'>
-            {pantsApi.map((pantItem) => 
+            {state.pantsApi.map((pantItem) => 
                <PantCard pantInfo={pantItem} key={pantItem.clothId}/>
             )} 
        </section> 
