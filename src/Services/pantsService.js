@@ -9,4 +9,4 @@ export const getPants = async () => {
        console.log("Error",error)
     }
    }
- 
+

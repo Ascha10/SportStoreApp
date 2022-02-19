@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import { shirtContext } from '../../../Context/ShirtsProvider/ShirtsProvider';
-import Loading from '../../Features/Loading/Loading';
+import Loading from '../../Layout/Loading/Loading';
 import ShirtCard from './ShirtCard';
 
 export default function ShoeCards() {

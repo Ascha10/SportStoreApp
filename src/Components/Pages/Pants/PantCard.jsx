@@ -10,14 +10,16 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
+import { productStyle } from '../../../Context/ThemeProvider/ThemeCSS';
+import { themeContext } from '../../../Context/ThemeProvider/ThemeProvider';
+import { useContext } from 'react';
 
 export default function ShoeCard({pantInfo}) {
 
+    const {theme} = useContext(themeContext);
      const {pantId,model,company,price,imageData} = pantInfo;
-
      return (
-      <Card sx={{ maxWidth: 345}}>
+      <Card sx={{ maxWidth: 345, '&:hover':{ transform:'scale(1.03)'},transition:'all 0.5s'}} style={theme === 'light' ? productStyle.light : productStyle.dark}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

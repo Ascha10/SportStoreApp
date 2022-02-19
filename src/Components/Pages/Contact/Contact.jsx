@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomInput from '../../Features/Custom/CustomInput';
+import CustomInput from '../../Layout/Custom/CustomInput';
 
 export default function Contact() {
 

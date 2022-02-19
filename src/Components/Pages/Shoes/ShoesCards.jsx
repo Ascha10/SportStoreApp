@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { shoesContext } from '../../../Context/ShoesProvider/ShoesProvider';
 import ShoeCard from './ShoeCard';
-import Loading from '../../Features/Loading/Loading'
+import Loading from '../../Layout/Loading/Loading'
 
 export default function ShoeCards() {
     const {state,dispatch} = useContext(shoesContext);

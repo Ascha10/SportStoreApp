@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,10 +8,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import { themeContext } from '../../../Context/ThemeProvider/ThemeProvider';
+import { headerStyle } from '../../../Context/ThemeProvider/ThemeCSS';
 
 export default function Header() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const {theme,setTheme} = useContext(themeContext);
+
+  const themeToggle = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -25,10 +34,11 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+
   return (
     <div className='header'>
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static">
+      <AppBar position="static" style={theme === 'light' ? headerStyle.light : headerStyle.dark} >
         <Toolbar>
           <IconButton
             size="large"
@@ -44,6 +54,17 @@ export default function Header() {
           </Typography>
           {auth && (
             <div>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={theme === 'light'}
+                onChange={themeToggle}
+                name="DarkMode"
+                color="primary"
+              />
+            }
+           label="DarkMode"
+         />
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -69,6 +90,7 @@ export default function Header() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Setting</MenuItem>

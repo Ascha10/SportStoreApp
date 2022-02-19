@@ -41,8 +41,9 @@ export function PantsProvider({children}) {
 
     useEffect(() => {
          getPants()
-			.then(data => {dispatch({ type: fetchSuccess, payload: data })})
+			.then(data => {dispatch({ type: fetchSuccess, payload: data})})
 			.catch(error => {dispatch({ type: fetchError })})
+
 	}, [])
 
   return(

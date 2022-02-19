@@ -2,7 +2,7 @@
   "name": "sportstoreapp",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://Ascha10.github.io/SportStoreApp",
+  "homepage": "http://Ascha10.github.io/SportStoreApp",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
